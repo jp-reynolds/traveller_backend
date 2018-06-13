@@ -3,7 +3,10 @@ var User = db.user;
 
 
 function userCreate (req, res) {
-
+    User.createSecure(req.body.email, req.body.password, function (err, newUser) {
+    	res.json(newUser);
+    	console.log(newUser);
+  	});
 }
 
 function userLogin (req, res) {
